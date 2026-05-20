@@ -1,17 +1,15 @@
 
+#ifndef PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
+#define PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
 
 
 #include<bits/stdc++.h>
 #include "../Model/RCube.h"
 
-#ifndef PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
-#define PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
-
-
 
 //t type and h hash function
 template<typename T,typename H>
-class BFSsolver
+class BFSSolver
 {
 private:
     T rcube; // current state of the cube
@@ -58,7 +56,7 @@ private:
     public:
 
 
-    BFSsolver(T cube)
+    BFSSolver(T cube)
     {
         rcube = cube;
     }
@@ -71,12 +69,14 @@ private:
         while(node !=rcube)
         {
             auto last_move = prevmove[node];
-            ans.pb(last_move);
+            ans.push_back(last_move);
             node.invert(last_move);
         }
         reverse(ans.begin(),ans.end());
         return ans;
 
     }
+};
 
-    #endif //PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
+
+    #endif 

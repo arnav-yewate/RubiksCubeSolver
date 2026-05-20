@@ -43,8 +43,13 @@ public:
    
 
     // RETURNS the color letter at position (row, column) on the specified face
-    virtual char getColor(FACE face,int row,int col) const = 0;
+    virtual COLOR getColor(FACE face, unsigned row, unsigned col) const = 0;
 
+    /*
+     * Returns the first letter of the given COLOR
+     * Eg: For COLOR::GREEN, it returns 'G'
+     */
+    static char getColorLetter(COLOR color);
 
 
     virtual bool isSolved()const=0;
@@ -61,10 +66,10 @@ public:
 
     // changing my cube
 
-    RubiksCube &Move(MOVE move);
+    RubiksCube &move(MOVE ind);
 
     // invert a move
-    RubiksCube &invert(MOVE move);
+    RubiksCube &invert(MOVE ind);
      
 
     virtual RubiksCube &f() = 0;
@@ -112,7 +117,7 @@ public:
     
 };
 
-#endif // PROJECTS_RUBYCUBE_RCUBE_H
+#endif 
 
 
 
