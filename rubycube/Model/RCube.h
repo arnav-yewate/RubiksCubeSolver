@@ -95,8 +95,11 @@ public:
 
     RubiksCube &move(MOVE ind);
 
+    RubiksCube &move(const string moveStr);
+
     // invert a move
     RubiksCube &invert(MOVE ind);
+    RubiksCube &invert(const string moveStr);
      
 
     virtual RubiksCube &f() = 0;

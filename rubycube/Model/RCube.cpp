@@ -75,7 +75,7 @@ string RubiksCube::getMove(MOVE ind)
             return "B2";
     }
 
-    return '&';
+    return "&";
 }
 
 RubiksCube &RubiksCube::move(MOVE ind) 
@@ -124,6 +124,30 @@ RubiksCube &RubiksCube::move(MOVE ind)
 }
 
 
+RubiksCube &RubiksCube::move(const string moveStr) 
+{
+    if(moveStr == "L")  return move(MOVE::L);
+    if(moveStr == "L'") return move(MOVE::LPRIME);
+    if(moveStr == "L2") return move(MOVE::L2);
+    if(moveStr == "R")  return move(MOVE::R);
+    if(moveStr == "R'") return move(MOVE::RPRIME);
+    if(moveStr == "R2") return move(MOVE::R2);
+    if(moveStr == "U")  return move(MOVE::U);
+    if(moveStr == "U'") return move(MOVE::UPRIME);
+    if(moveStr == "U2") return move(MOVE::U2);
+    if(moveStr == "D")  return move(MOVE::D);
+    if(moveStr == "D'") return move(MOVE::DPRIME);
+    if(moveStr == "D2") return move(MOVE::D2);
+    if(moveStr == "F")  return move(MOVE::F);
+    if(moveStr == "F'") return move(MOVE::FPRIME);
+    if(moveStr == "F2") return move(MOVE::F2);
+    if(moveStr == "B")  return move(MOVE::B);
+    if(moveStr == "B'") return move(MOVE::BPRIME);
+    if(moveStr == "B2") return move(MOVE::B2);
+    return *this;
+}
+
+
 RubiksCube &RubiksCube::invert(MOVE ind) 
 {
     switch (ind) 
@@ -168,6 +192,29 @@ RubiksCube &RubiksCube::invert(MOVE ind)
     return this->l();
 }
 
+
+RubiksCube &RubiksCube::invert(const string moveStr) 
+{
+    if(moveStr == "L")  return invert(MOVE::L);
+    if(moveStr == "L'") return invert(MOVE::LPRIME);
+    if(moveStr == "L2") return invert(MOVE::L2);
+    if(moveStr == "R")  return invert(MOVE::R);
+    if(moveStr == "R'") return invert(MOVE::RPRIME);
+    if(moveStr == "R2") return invert(MOVE::R2);
+    if(moveStr == "U")  return invert(MOVE::U);
+    if(moveStr == "U'") return invert(MOVE::UPRIME);
+    if(moveStr == "U2") return invert(MOVE::U2);
+    if(moveStr == "D")  return invert(MOVE::D);
+    if(moveStr == "D'") return invert(MOVE::DPRIME);
+    if(moveStr == "D2") return invert(MOVE::D2);
+    if(moveStr == "F")  return invert(MOVE::F);
+    if(moveStr == "F'") return invert(MOVE::FPRIME);
+    if(moveStr == "F2") return invert(MOVE::F2);
+    if(moveStr == "B")  return invert(MOVE::B);
+    if(moveStr == "B'") return invert(MOVE::BPRIME);
+    if(moveStr == "B2") return invert(MOVE::B2);
+    return *this;
+}
 
 
 void RubiksCube::print() const 

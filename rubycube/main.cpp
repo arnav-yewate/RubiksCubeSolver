@@ -13,10 +13,23 @@ int main()
 {
     Cube3D dd;
 
+    dd.move("D");
+    dd.move("F");
+    dd.move("R'");
+    
     dd.print();
+    cout<<endl;
+    dd.invert("R'");
+    dd.print();
+    cout<<endl;
+    dd.invert("F");
+    dd.print();
+    cout<<endl;
+    dd.invert("D");
+    dd.print();
+    cout<<endl;
 
-
-
+    
 
 
 
