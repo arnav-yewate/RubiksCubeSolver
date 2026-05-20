@@ -1,5 +1,12 @@
 
 #include "RCube.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <random>
+#include <chrono>
+
+using namespace std;
 
 
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -215,19 +222,19 @@ void RubiksCube::print() const
 }
 
 
-vector<RubiksCube::MOVE> randomshullfe(unsigned times)
+vector<RubiksCube::MOVE> RubiksCube::randomshuffle(int times) 
 {
     vector<RubiksCube::MOVE> moves;
-    for(int i=0;i<times;i++)
+    for (int i = 0; i < times; i++) 
     {
-        int move = rng()%18;
-        moves.push_back(static_cast<RubiksCube::MOVE>(move)) ;
-
+        int move = rng() % 18;
+        auto generated_move = static_cast<RubiksCube::MOVE>(move);
+        
+        moves.push_back(generated_move);
+        this->move(generated_move); 
     }
     return moves;
-
 }
-
 
 
 
