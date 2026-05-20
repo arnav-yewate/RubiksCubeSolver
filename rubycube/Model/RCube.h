@@ -5,6 +5,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+     * 
+     *
+     * The cube is laid out as follows.
+     *
+     * The sides:
+     *    U
+     *  L F R B
+     *    D
+     *
+     * Color wise:
+     *
+     *          W W W
+     *          W W W   U(0)
+     *          W W W
+     *
+     *  G G G   R R R   B B B   O O O
+     *  G G G   R R R   B B B   O O O
+     *  G G G   R R R   B B B   O O O
+     *   L(1)    F(2)    R(3)    B(4)
+     *          Y Y Y
+     *          Y Y Y
+     *          Y Y Y
+     *           D(5)
+    */
+
 // base class for all types of cube representations
 
 class RubiksCube 
@@ -12,10 +38,12 @@ class RubiksCube
 public:
     enum class FACE
     {
+
+       
         UP,
         LEFT,
-        RIGHT,
         FRONT,
+        RIGHT,
         BACK,
         DOWN
     };
@@ -39,8 +67,7 @@ public:
         F,FPRIME,F2,
         B,BPRIME,B2
     };
-
-   
+     
 
     // RETURNS the color letter at position (row, column) on the specified face
     virtual COLOR getColor(FACE face, unsigned row, unsigned col) const = 0;
