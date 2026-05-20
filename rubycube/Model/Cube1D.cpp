@@ -1,4 +1,5 @@
 #include "RCube.h"
+#include <array>
 
 class Cube1D : public RubiksCube
 {
