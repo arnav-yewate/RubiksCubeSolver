@@ -28,6 +28,8 @@ char RubiksCube::getColorLetter(COLOR color)
         case COLOR::ORANGE:
             return 'O';
     }
+
+    return '&';
 }
 
 
@@ -72,6 +74,8 @@ string RubiksCube::getMove(MOVE ind)
         case MOVE::B2:
             return "B2";
     }
+
+    return '&';
 }
 
 RubiksCube &RubiksCube::move(MOVE ind) 
@@ -115,6 +119,8 @@ RubiksCube &RubiksCube::move(MOVE ind)
         case MOVE::B2:
             return this->b2();
     }
+
+    return this->l();
 }
 
 
@@ -159,6 +165,7 @@ RubiksCube &RubiksCube::invert(MOVE ind)
         case MOVE::B2:
             return this->b2();
     }
+    return this->l();
 }
 
 
