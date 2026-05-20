@@ -1,5 +1,5 @@
-#ifndef PROJECTS_RUBYCUBE_CUBE_H
-#define PROJECTS_RUBYCUBE_CUBE_H
+#ifndef PROJECTS_RUBYCUBE_RCUBE_H
+#define PROJECTS_RUBYCUBE_RCUBE_H
 
 
 #include <bits/stdc++.h>
@@ -112,7 +112,7 @@ public:
     
 };
 
-#endif // PROJECTS_RUBYCUBE_CUBE_H
+#endif // PROJECTS_RUBYCUBE_RCUBE_H
 
 
 

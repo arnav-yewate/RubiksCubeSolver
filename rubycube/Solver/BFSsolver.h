@@ -1,13 +1,11 @@
 
 
 
+#include<bits/stdc++.h>
+#include "../Model/RCube.h"
 
-
-
-
-
-
-
+#ifndef PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
+#define PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
 
 
 
@@ -15,8 +13,10 @@
 template<typename T,typename H>
 class BFSsolver
 {
-private:: 
-    vector<RubiksCube::MOVE> moves; // list of moves to solve the cube
+private:
+    T rcube; // current state of the cube
+
+    // list of moves to solve the cube
     unordered_map<T,bool,H> vis;
     unordered_map<T,RubiksCube::MOVE,H> prevmove; // move used to reach this state
 
@@ -42,7 +42,7 @@ private::
                 if(!vis[node])
                 {
                     vis[node]=true;
-                    prevmove[node]=cur_moove;
+                    prevmove[node]=cur_move;
                     q.push(node);
 
                 } 
@@ -57,17 +57,26 @@ private::
 
     public:
 
-    T rcube; // current state of the cube
 
-    BFSsolver(t cube)
+    BFSsolver(T cube)
     {
         rcube = cube;
     }
 
     vector<RubiksCube::MOVE> solve()
     {
-
-
-
+        T node = bfs();
+        assert(node.isSolved());
+        vector<RubiksCube::MOVE> ans;
+        while(node !=rcube)
+        {
+            auto last_move = prevmove[node];
+            ans.pb(last_move);
+            node.invert(last_move);
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
 
     }
+
+    #endif //PROJECTS_RUBYCUBE_SOLVER_BFSSOLVER_H
