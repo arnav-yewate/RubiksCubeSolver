@@ -78,8 +78,10 @@ uint32_t CornerPattern::getDatabaseIndex(const RubiksCube& cube) const
     for (int i = 0; i < 7; i++)
     {
         int count = 0;
-        for (int j = i + 1; j < 8; j++) {
-            if (cornerPerm[i] > cornerPerm[j]) {
+        for (int j = i + 1; j < 8; j++) 
+        {
+            if (cornerPerm[i] > cornerPerm[j]) 
+            {
                 count++;
             }
         }
