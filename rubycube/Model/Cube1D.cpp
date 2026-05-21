@@ -264,6 +264,16 @@ class Cube1D : public RubiksCube
         return *this;
     }
 
+    bool operator==(const Cube1D& other) const 
+    {
+        return cube == other.cube;  
+    }
+
+    bool operator!=(const Cube1D& other) const 
+    {
+        return !(*this == other);
+    }
+
 
     struct Hash1d
     {

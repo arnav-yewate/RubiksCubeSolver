@@ -11,25 +11,22 @@ using namespace std;
 
 int main()
 {
-    Cube3D dd;
+    Cube1D dd;
 
-    dd.move("D");
-    dd.move("F");
-    dd.move("R'");
-    
-    dd.print();
-    cout<<endl;
-    dd.invert("R'");
-    dd.print();
-    cout<<endl;
-    dd.invert("F");
-    dd.print();
-    cout<<endl;
-    dd.invert("D");
-    dd.print();
-    cout<<endl;
+    vector<RubiksCube::MOVE> g = dd.randomshuffle(6),h;
+    reverse(g.begin(),g.end());
+
+    IDDFSSolver<Cube1D, Cube1D:: Hash1d> bfs(dd,6);
+    h = bfs.solve();
 
     
+    dd.print();
+    cout<<h.size()<<endl;
+    for(int i=0;i<h.size();i++)
+    {
+        dd.move(h[i]);
+    }
+    dd.print();
 
 
 
