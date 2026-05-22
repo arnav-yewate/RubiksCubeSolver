@@ -1,6 +1,9 @@
 #ifndef CORNER_PATTERN__H
 #define CORNER_PATTERN__H
 
+
+
+#include "../Model/CubeBitboard.cpp" 
 #include "../Model/RCube.h"
 #include <vector>
 #include <string>
@@ -18,17 +21,17 @@ public:
 
     // 1. Store and Retrieve moves
     void setNumMoves(uint32_t index, uint8_t numMoves);
-    void setNumMoves(const RubiksCube& cube, uint8_t numMoves);
+    void setNumMoves(const CubeBitB& cube, uint8_t numMoves);
     
     uint8_t getNumMoves(uint32_t index) const;
-    uint8_t getNumMoves(const RubiksCube& cube) const;
+    uint8_t getNumMoves(const CubeBitB& cube) const;
 
     // 2. File I/O (Saving and Loading)
     bool toFile(const string& filePath) const;
     bool fromFile(const string& filePath);
 
     // 3. The Math (Turning 8 corners into a single index)
-    uint32_t getDatabaseIndex(const RubiksCube& cube) const;
+    uint32_t getDatabaseIndex(const CubeBitB& cube) const;
 };
 
 #endif

@@ -281,7 +281,7 @@ vector<RubiksCube::MOVE> RubiksCube::randomshuffle(int times)
     vector<RubiksCube::MOVE> moves;
     for (int i = 0; i < times; i++) 
     {
-        int move = rng() % 18;
+        int move = rand() % 18;
         auto generated_move = static_cast<RubiksCube::MOVE>(move);
         
         moves.push_back(generated_move);

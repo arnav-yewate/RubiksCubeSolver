@@ -40,7 +40,7 @@ public:
         
         if (infile.read((char*)database.data(), size)) 
         {
-            cout << "Loaded " << filePath << " successfully! (" << size << " bytes)" << endl;
+            // cout << "Loaded " << filePath << " successfully! (" << size << " bytes)" << endl;
             return true;
         }
         return false;

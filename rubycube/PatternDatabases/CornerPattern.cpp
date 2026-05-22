@@ -17,7 +17,7 @@ void CornerPattern::setNumMoves(uint32_t index, uint8_t numMoves)
     database[index] = numMoves;
 }
 
-void CornerPattern::setNumMoves(const RubiksCube& cube, uint8_t numMoves) 
+void CornerPattern::setNumMoves(const CubeBitB& cube, uint8_t numMoves) 
 {
     database[getDatabaseIndex(cube)] = numMoves;
 }
@@ -27,7 +27,7 @@ uint8_t CornerPattern::getNumMoves(uint32_t index) const
     return database[index];
 }
 
-uint8_t CornerPattern::getNumMoves(const RubiksCube& cube) const 
+uint8_t CornerPattern::getNumMoves(const CubeBitB& cube) const 
 {
     return database[getDatabaseIndex(cube)];
 }
@@ -61,7 +61,7 @@ bool CornerPattern::fromFile(const string& filePath)
 }
 
 
-uint32_t CornerPattern::getDatabaseIndex(const RubiksCube& cube) const 
+uint32_t CornerPattern::getDatabaseIndex(const CubeBitB& cube) const 
 {
     uint32_t rank = 0;
     array<int, 8> cornerPerm;

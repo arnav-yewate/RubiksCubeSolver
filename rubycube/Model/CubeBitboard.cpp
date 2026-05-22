@@ -1,3 +1,5 @@
+#pragma once
+
 #include "RCube.h"
 
 class CubeBitB : public RubiksCube
@@ -272,7 +274,7 @@ public:
         return true;
     }
 
-    RubiksCube &u() override 
+    RubiksCube &u() override
     {
         this->rotateFace(0);
         uint64_t temp = bitboard[2] & one_24;
@@ -283,7 +285,7 @@ public:
         return *this;
     }
 
-    RubiksCube &d() override 
+    RubiksCube &d() override
     {
         this->rotateFace(5);
         uint64_t clr1 = (bitboard[2] & (one_8 << (8 * 4))) >> (8 * 4);
@@ -300,7 +302,7 @@ public:
         return *this;
     }
 
-    RubiksCube &f() override 
+    RubiksCube &f() override
     {
         this->rotateFace(2);
         uint64_t clr1 = (bitboard[0] & (one_8 << (8 * 4))) >> (8 * 4);
@@ -317,7 +319,7 @@ public:
         return *this;
     }
 
-    RubiksCube &b() override 
+    RubiksCube &b() override
     {
         this->rotateFace(4);
         uint64_t clr1 = (bitboard[0] & (one_8 << (8 * 0))) >> (8 * 0);
@@ -334,7 +336,7 @@ public:
         return *this;
     }
 
-    RubiksCube &l() override 
+    RubiksCube &l() override
     {
         this->rotateFace(1);
         uint64_t clr1 = (bitboard[2] & (one_8 << (8 * 0))) >> (8 * 0);
@@ -351,7 +353,7 @@ public:
         return *this;
     }
 
-    RubiksCube &r() override 
+    RubiksCube &r() override
     {
         this->rotateFace(3);
         uint64_t clr1 = (bitboard[0] & (one_8 << (8 * 2))) >> (8 * 2);
@@ -385,8 +387,6 @@ public:
         return *this;
     };
 
-    
-
     RubiksCube &lPrime() override
     {
         this->l();
@@ -404,8 +404,6 @@ public:
         return *this;
     };
 
-   
-
     RubiksCube &fPrime() override
     {
         this->f();
@@ -422,7 +420,6 @@ public:
         return *this;
     };
 
-   
     RubiksCube &rPrime() override
     {
         this->r();
@@ -440,8 +437,6 @@ public:
         return *this;
     };
 
-    
-
     RubiksCube &bPrime() override
     {
         this->b();
@@ -458,8 +453,6 @@ public:
 
         return *this;
     };
-
-   
 
     RubiksCube &dPrime() override
     {
@@ -564,17 +557,17 @@ public:
 
         return ret;
     }
-};
 
-struct HashBit
-{
-    size_t operator()(const CubeBitB &r1) const
+    struct HashBit
     {
-        size_t seed = 0;
-        for (int i = 0; i < 6; i++)
+        size_t operator()(const CubeBitB &r1) const
         {
-            seed ^= r1.bitboard[i] + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+            size_t seed = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                seed ^= r1.bitboard[i] + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+            }
+            return seed;
         }
-        return seed;
-    }
+    };
 };
