@@ -21,7 +21,7 @@ IDDFS (Iterative Deepening DFS): Balances memory and optimality, but suffers fro
 
 IDA (Iterative Deepening A): The final production solver. Uses heuristic pruning to find the absolute shortest path instantly.
 
-🗄️ Pattern Databases (170MB)
+🗄️ Pattern Databases (165MB)
 To power the IDA* heuristic, the engine pre-computes and stores the exact distance to the solved state for 85 million unique permutations.
 
 Databases: Corners, Edge-1, and Edge-2.
