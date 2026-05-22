@@ -14,19 +14,19 @@ int main()
 {
     Cube1D dd;
     dd.randomshuffle(12);
-    IDAstarSolver<Cube1D,Cube1D::Hash1d> g(dd,"corners.bin");
+    IDAstarSolver<Cube1D> g(dd,"corners.bin");
     auto start_time = chrono::high_resolution_clock::now();
     vector<RubiksCube::MOVE> h= g.solve();
 
     auto end_time = chrono::high_resolution_clock::now();
-    dd.print();
+    // dd.print();
     for(int i=0;i<h.size();i++)
     {
         cout<<RubiksCube::getMove(h[i])<<endl;
-        dd.move(h[i]);
+        // dd.move(h[i]);
     }
     cout<<endl;
-    dd.print();
+    // dd.print();
     
     auto duration_ms = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
     double duration_seconds = duration_ms / 1000.0;

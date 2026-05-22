@@ -6,8 +6,8 @@
 #include "../Model/RCube.h"
 #include "../PatternDatabases/CornerPattern.h"
 
-// t type and h hash function
-template <typename T, typename H>
+// t type 
+template <typename T>
 class IDAstarSolver
 {
 private:
