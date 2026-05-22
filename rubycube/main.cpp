@@ -2,6 +2,7 @@
 #include <chrono>
 #include "Model/Cube1D.cpp"
 #include "Model/Cube3D.cpp"
+#include "Model/CubeBitboard.cpp"
 #include "Solver/DFSSolver.h"
 #include "Solver/BFSSolver.h"
 #include "Solver/IDDFSSolver.h"
@@ -12,12 +13,14 @@ using namespace std;
 
 int main()
 {
-    Cube1D dd;
-    dd.randomshuffle(12);
-    IDAstarSolver<Cube1D> g(dd,"corners.bin");
+    CubeBitB dd;
+    dd.randomshuffle(13);
+    IDAstarSolver<CubeBitB> g(dd,"corners.bin");
     auto start_time = chrono::high_resolution_clock::now();
-    vector<RubiksCube::MOVE> h= g.solve();
 
+    cout<<"Solving....."<<endl;
+    vector<RubiksCube::MOVE> h= g.solve();
+    cout<<"Solved!!"<<endl;
     auto end_time = chrono::high_resolution_clock::now();
     // dd.print();
     for(int i=0;i<h.size();i++)
