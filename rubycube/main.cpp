@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include <chrono>
+// #include <chrono>
 #include "Model/Cube1D.cpp"
 #include "Model/Cube3D.cpp"
 #include "Model/CubeBitboard.cpp"
@@ -16,8 +16,8 @@ using namespace std;
 int main()
 {
     CubeBitB dd;
-    dd.randomshuffle(14);
-    IDAstarSolver<CubeBitB> g(dd);
+    dd.randomshuffle(8);
+    IDDFSSolver<CubeBitB,CubeBitB::HashBit> g(dd,7);
     auto start_time = chrono::high_resolution_clock::now();
 
     cout<<"Solving....."<<endl;
