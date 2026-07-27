@@ -13,10 +13,10 @@ int main()
     CornerPattern cornerDB;
     
     
-    Cube3D solved_cube;
+    CubeBitB solved_cube;
     
     
-    queue<Cube3D> q;
+    queue<CubeBitB> q;
     q.push(solved_cube);
     
    
@@ -30,7 +30,7 @@ int main()
     
     while (!q.empty()) 
     {
-        Cube3D curr = q.front();
+        CubeBitB curr = q.front();
         q.pop();
         
         uint8_t depth = cornerDB.getNumMoves(curr);
