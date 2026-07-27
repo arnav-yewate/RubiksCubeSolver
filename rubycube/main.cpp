@@ -10,28 +10,28 @@
 #include "PatternDatabases/CornerPattern.h"
 #include "PatternDatabases/Edge1DB.h"
 #include "PatternDatabases/Edge2DB.h"
-
+// g++ main.cpp Model/RCube.cpp PatternDatabases/CornerPattern.cpp -O3 
 using namespace std;
 
 int main()
 {
     CubeBitB dd;
-    dd.randomshuffle(8);
-    IDDFSSolver<CubeBitB,CubeBitB::HashBit> g(dd,7);
+    dd.randomshuffle(15);
+    IDAstarSolver<CubeBitB> g(dd);
     auto start_time = chrono::high_resolution_clock::now();
 
     cout<<"Solving....."<<endl;
-     g.solve();
+    vector<RubiksCube::MOVE> h= g.solve();
     cout<<"Solved!!"<<endl;
     auto end_time = chrono::high_resolution_clock::now();
-    // dd.print();
-    // for(int i=0;i<h.size();i++)
-    // {
-    //     cout<<RubiksCube::getMove(h[i])<<endl;
-    //     // dd.move(h[i]);
-    // }
+    dd.print();
+    for(int i=0;i<h.size();i++)
+    {
+        cout<<RubiksCube::getMove(h[i])<<" ";
+        dd.move(h[i]);
+    }
     cout<<endl;
-    // dd.print();
+    dd.print();
     
     auto duration_ms = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
     double duration_seconds = duration_ms / 1000.0;

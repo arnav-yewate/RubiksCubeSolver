@@ -19,22 +19,22 @@ private:
 
     int dfs(int depth, int bound)
     {
+        // 1. Calculate the true maximum heuristic first
         int edge1_h = edge1DB.getNumMoves(cube);
-        if (depth + edge1_h > bound) return depth + edge1_h;
-
-        // 2. If we survived, check Edge 2
         int edge2_h = edge2DB.getNumMoves(cube);
-        if (depth + edge2_h > bound) return depth + edge2_h;
-
-        // 3. If we STILL survived, check Corners LAST
         int corner_h = cornerDB.getNumMoves(cube);
-        if (depth + corner_h > bound) return depth + corner_h;
 
-        // If we made it this far, the node is valid within the current bound!
         int heuristic = max({edge1_h, edge2_h, corner_h});
-        
-        // Did we solve it?
-        if (heuristic == 0) return -1;
+
+        // 2. Check the bound using the maximum heuristic
+        if (depth + heuristic > bound)
+        {
+            return depth + heuristic;
+        }
+
+        // 3. Did we solve it?
+        if (heuristic == 0)
+            return -1;
 
         
         int min_next_bound = 1e9;
