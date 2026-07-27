@@ -46,7 +46,7 @@ class DFSSolver
     vector<RubiksCube::MOVE> solve()
     {
         ans.clear();
-        dfs(1);
+        dfs(max_depth);
         return ans;
     }
 
