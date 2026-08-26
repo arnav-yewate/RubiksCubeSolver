@@ -16,7 +16,7 @@ using namespace std;
 int main()
 {
     CubeBitB dd;
-    dd.randomshuffle(15);
+    dd.randomshuffle(14);
     IDAstarSolver<CubeBitB> g(dd);
     auto start_time = chrono::high_resolution_clock::now();
 
@@ -24,7 +24,9 @@ int main()
     vector<RubiksCube::MOVE> h= g.solve();
     cout<<"Solved!!"<<endl;
     auto end_time = chrono::high_resolution_clock::now();
+    cout<<"Scrambled State"<<endl;
     dd.print();
+    
     for(int i=0;i<h.size();i++)
     {
         cout<<RubiksCube::getMove(h[i])<<" ";

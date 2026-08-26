@@ -1,0 +1,1 @@
+// g++ main.cpp Model/RCube.cpp PatternDatabases/CornerPattern.cpp -O3 

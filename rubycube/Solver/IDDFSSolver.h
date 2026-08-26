@@ -6,8 +6,8 @@
 #include "../Model/RCube.h"
 #include "DFSSolver.h"
 
-//t type and h hash function
-template<typename T,typename H>
+
+template<typename T>
 class IDDFSSolver
 {
     private:
@@ -30,7 +30,7 @@ class IDDFSSolver
         vector<RubiksCube::MOVE> ans;
         for(int i=1;i<=max_depth;i++)
         {
-            DFSSolver<T,H> dfss(rcube,i);
+            DFSSolver<T> dfss(rcube,i);
             ans = dfss.solve();
             if(!ans.empty())
             {

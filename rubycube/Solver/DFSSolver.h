@@ -6,8 +6,8 @@
 #include "../Model/RCube.h"
 
 
-//t type and h hash function
-template<typename T,typename H>
+
+template<typename T>
 class DFSSolver
 {
     private:
@@ -46,7 +46,7 @@ class DFSSolver
     vector<RubiksCube::MOVE> solve()
     {
         ans.clear();
-        dfs(max_depth);
+        dfs(0);
         return ans;
     }
 
